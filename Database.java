@@ -10,6 +10,11 @@ public class Database {
             Connection con = DriverManager.getConnection("jdbc:mysqli://localhost/" + db, "root", "");
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
+            int i = 0;
+            while(rs.next()){
+                i += 1;
+                res[i] = rs.toString();
+            }
         } catch (Exception e) {
             System.out.println(e);
         }

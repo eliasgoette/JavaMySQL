@@ -14,6 +14,10 @@ public class Login{
         }
     }
 
+    public boolean checkIfLoggedIn(){
+        return loggedIn;
+    }
+
     private static int getHashFromDB(String username){
         int hash = Integer.parseInt(Database.selectWhere("users", "username == " + username));
         return hash;
