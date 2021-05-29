@@ -1,5 +1,5 @@
 import javax.swing.*;
-import java.awt.*;
+//import java.awt.*;
 
 public class Window {
     public static JFrame start(String windowTitle){
@@ -7,7 +7,9 @@ public class Window {
 
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setSize(800, 600);
-        jf.getContentPane().setLayout(new FlowLayout());
+//        jf.getContentPane().setLayout(new BorderLayout());
+        ImageIcon img = new ImageIcon("./Mercedes-Benz-Logo.jpg");
+        jf.setIconImage(img.getImage());
         jf.setVisible(true);
 
         return(jf);
@@ -29,7 +31,38 @@ public class Window {
         JPasswordField passwordJPasswordField = new JPasswordField();
         frame.add(passwordJPasswordField);
         
-        frame.setSize(200, 200);
+
+        GroupLayout groupLayout = new GroupLayout(frame);
+        frame.setLayout(groupLayout);
+
+
+//        groupLayout.setAutoCreateGaps(true);
+//        groupLayout.setAutoCreateContainerGaps(true);
+
+        groupLayout.setHorizontalGroup(
+            groupLayout.createSequentialGroup()
+                .addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(usernameJLabel)
+                    .addComponent(usernameJTextField)
+                )
+                .addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(passwordJLabel)
+                    .addComponent(passwordJPasswordField)
+                )
+        );
+
+        groupLayout.setVerticalGroup(
+            groupLayout.createSequentialGroup()
+            .addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addComponent(usernameJLabel)
+                .addComponent(usernameJTextField)
+            )
+            .addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addComponent(passwordJPasswordField)
+                .addComponent(passwordJLabel)
+            )
+        );
+
         return(frame);
     }
 }

@@ -26,7 +26,7 @@ public class Login{
     private static int createHash(String input){
         int hash;
         int hash_raw = input.hashCode();
-        hash = hash_raw * 129842227 + 532119 * 1000;
+        hash = (hash_raw * 129842 + 532119) * 2921 * -1;
         System.out.println(hash);
         return hash;
     }
